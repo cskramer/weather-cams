@@ -4,21 +4,23 @@
 name: Mirror cameras
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "7-59/15 * * * *"   # backup restart; the job normally re-triggers itself every 5 minutes
   workflow_dispatch:
   push:
     branches: [main]
     paths: ["config/cams.json", "tools/mirror_cams.py", ".github/workflows/cams.yml"]
 permissions:
   contents: write
+  actions: write      # lets a run start the next one
 concurrency:
   group: mirror-cams
   cancel-in-progress: false
 jobs:
   mirror:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
+      - run: echo "START=$(date +%s)" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
@@ -28,6 +30,9 @@ jobs:
       - run: pip install -r tools/requirements.txt
       - name: ffmpeg
         run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Browser (only when a "page" source is configured)
+        run: |
+          if grep -Eq '"type" *: *"page"' config/cams.json; then python -m playwright install --with-deps chromium; fi
       - name: Restore previous pictures from the cams branch
         run: |
           mkdir cams-out
@@ -44,3 +49,15 @@ jobs:
           git commit -q -m "cameras $(date -u +%Y-%m-%dT%H:%MZ)"
           git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
           git push -q -f origin cams
+      - name: Start the next run in about 5 minutes
+        # GitHub's own cron is unreliable at 5-minute intervals, so each run schedules the next.
+        # "concurrency" keeps at most one run waiting, so duplicate chains collapse into one.
+        if: always() && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          elapsed=$(( $(date +%s) - START ))
+          delay=$(( 300 - elapsed ))
+          [ "$delay" -lt 20 ] && delay=20
+          sleep "$delay"
+          gh workflow run cams.yml --ref "${{ github.event.repository.default_branch }}"
