@@ -10,6 +10,7 @@ usage: mirror_cams.py CONFIG OUT_DIR
 """
 import io, json, os, shutil, subprocess, sys, tempfile, time
 import requests
+import urllib3
 from PIL import Image, ImageStat
 
 MAX_AGE_H = 24
@@ -45,7 +46,10 @@ def grab_still(src):
     h = {"User-Agent": UA}
     if src.get("referer"):
         h["Referer"] = src["referer"]
-    r = requests.get(src["url"], headers=h, timeout=HTTP_TIMEOUT)
+    verify = not src.get("insecure")   # "insecure": true skips certificate checks (broken camera certificates)
+    if not verify:
+        urllib3.disable_warnings()
+    r = requests.get(src["url"], headers=h, timeout=HTTP_TIMEOUT, verify=verify)
     r.raise_for_status()
     return to_jpeg(r.content)
 
@@ -127,6 +131,8 @@ def main(cfg_path, out_dir):
             else:
                 ok_n += 1
                 print(f"ok   {pid}: source {used} ({status[pid]['type']}), {status[pid]['bytes']} bytes")
+                for e in errors:                       # earlier sources that failed before this one worked
+                    print(f"       skipped: {e}")
     status["_run"] = {"time": now, "ok": ok_n, "total": total}
     with open(status_path, "w") as f:
         json.dump(status, f, indent=1)
