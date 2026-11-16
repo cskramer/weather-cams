@@ -326,6 +326,22 @@
      }
     ],
     "note": "The Austonian camera (BrownRice). The still is a guess at their snapshot address; the stream is the real one."
+   },
+   {
+    "id": "berkeley",
+    "name": "Berkeley",
+    "country": "CA",
+    "lat": 37.8715,
+    "lon": -122.273,
+    "elev": null,
+    "radius": 0.08,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://pub-70a20cacc0a242598aca5c5cdc051df5.r2.dev/images/newview.jpg",
+      "unverified": true
+     }
+    ]
    }
   ],
   "ski": [
