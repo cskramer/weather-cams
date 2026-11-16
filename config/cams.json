@@ -76,6 +76,12 @@
     "sources": [
      {
       "type": "hls",
+      "url": "https://stream-uc2-charlie.dropcam.com/nexus_aac/0d6bf37f50f94e05a266c2fa9fcc24b7/playlist.m3u8?public=oSx4Gxn50P",
+      "referer": "https://video.nest.com/",
+      "unverified": true
+     },
+     {
+      "type": "hls",
       "url": "https://s174.ipcamlive.com/streams/aefhtdn8a6sgseg7p/stream.m3u8",
       "unverified": true
      },
@@ -89,7 +95,7 @@
       "url": "https://cocam.carsprogram.org/Cellular/135S02685CAM1RHS-S.jpg"
      }
     ],
-    "note": "Elk Avenue. First source is a stream address copied from the browser (ipcamlive stream ids can change when the stream restarts); then the ipcamlive snapshot for alias 5dcc7be5d5f02; then a CDOT highway cam."
+    "note": "Elk Avenue. Sources in order: Nest/Dropcam public stream; ipcamlive stream (session address, may expire); ipcamlive snapshot (alias 5dcc7be5d5f02); CDOT highway cam."
    },
    {
     "id": "telluride-town",
@@ -297,6 +303,29 @@
      }
     ],
     "note": "First source is a YouTube stream; second is the low-res hazecam.net still."
+   },
+   {
+    "id": "austin",
+    "name": "Austin",
+    "country": "TX",
+    "lat": 30.2672,
+    "lon": -97.7431,
+    "elev": null,
+    "radius": 0.15,
+    "sources": [
+     {
+      "type": "hls",
+      "url": "https://streamer8.brownrice.com/austonian/austonian.stream/main_playlist.m3u8",
+      "unverified": true
+     },
+     {
+      "type": "still",
+      "url": "https://streamer8.brownrice.com/cam-images/austonian.jpg",
+      "insecure": true,
+      "unverified": true
+     }
+    ],
+    "note": "The Austonian camera (BrownRice). The still is a guess at their snapshot address; the stream is the real one."
    }
   ],
   "ski": [
@@ -372,10 +401,15 @@
     "sources": [
      {
       "type": "still",
+      "url": "https://g1.ipcamlive.com/player/snapshot.php?alias=jointpoint",
+      "unverified": true
+     },
+     {
+      "type": "still",
       "url": "https://tellurideskiresort.com/wp-content/uploads/tweb/00/top9.jpg"
      }
     ],
-    "note": "Top of Lift 9; may be stale outside ski season."
+    "note": "See Forever cam (ipcamlive alias jointpoint, from tellurideskiresort.com/webcams/see-forever-webcam/); Top of Lift 9 still is the fallback."
    }
   ],
   "other": []

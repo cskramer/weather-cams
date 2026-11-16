@@ -61,7 +61,8 @@ def ffmpeg_frame(url, referer=None):
         if url.startswith("http"):          # http-only options
             cmd += ["-user_agent", UA]
             if referer:
-                cmd += ["-headers", f"Referer: {referer}\r\n"]
+                origin = "/".join(referer.split("/")[:3])
+                cmd += ["-headers", f"Referer: {referer}\r\nOrigin: {origin}\r\n"]
         cmd += ["-i", url, "-frames:v", "1", "-q:v", "3", out]
         subprocess.run(cmd, check=True, timeout=VIDEO_TIMEOUT, capture_output=True)
         with open(out, "rb") as f:
