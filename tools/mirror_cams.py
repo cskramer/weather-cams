@@ -100,9 +100,13 @@ def grab_page(src):
         browser = pw.chromium.launch(args=["--autoplay-policy=no-user-gesture-required", "--mute-audio"])
         try:
             page = browser.new_page(viewport={"width": 1280, "height": 720}, user_agent=UA)
-            page.goto(src["url"], wait_until="domcontentloaded", timeout=30000)
+            page.goto(src["url"], wait_until="domcontentloaded", timeout=30000,
+                      referer=src.get("referer"))
+            el = None
+            if src.get("selector"):
+                el = page.wait_for_selector(src["selector"], timeout=15000)
+                el.scroll_into_view_if_needed()      # lazy-loaded players start when visible
             page.wait_for_timeout(int(wait * 1000))
-            el = page.query_selector(src["selector"]) if src.get("selector") else None
             png = el.screenshot() if el else page.screenshot()
         finally:
             browser.close()

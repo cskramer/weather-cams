@@ -96,9 +96,22 @@
     "radius": 0.02,
     "sources": [
      {
+      "type": "hls",
+      "url": "https://vstream.command.verkada.com/filter/transcode/v2_c68e2169827d56db8aaa66ded1b98a38/a7b6ed06-9bc2-4b4a-ae88-e81f6fd52a73/high_res/livevideo.m3u8",
+      "referer": "https://townofmountainvillage.com/",
+      "unverified": true
+     },
+     {
+      "type": "hls",
+      "url": "https://vstream.command.verkada.com/filter/transcode/v2_c68e2169827d56db8aaa66ded1b98a38/a7b6ed06-9bc2-4b4a-ae88-e81f6fd52a73/low_res/livevideo.m3u8",
+      "referer": "https://townofmountainvillage.com/",
+      "unverified": true
+     },
+     {
       "type": "page",
-      "url": "https://vauth.command.verkada.com/__v/town-of-mountain-village/embed/html/79777fa6-9977-43e1-a985-d4a51a37a20f/",
-      "wait": 12,
+      "url": "https://townofmountainvillage.com/webcams/",
+      "selector": "iframe[src*=\"79777fa6\"]",
+      "wait": 15,
       "unverified": true
      },
      {
@@ -106,7 +119,7 @@
       "url": "https://cocam.carsprogram.org/Cellular/145S07055CAM1RHS-N.jpg"
      }
     ],
-    "note": "First source is the Telluride Station gondola camera (Oak Street Plaza) from townofmountainvillage.com/webcams, shown through a headless browser; second is the CDOT Lawson Hill highway cam. The gondola is closed for maintenance Oct 26 - Nov 19."
+    "note": "Telluride Station gondola camera (Verkada embed from townofmountainvillage.com/webcams): direct stream, then the embed on its own page via a headless browser, then the CDOT Lawson Hill highway cam. Gondola closed for maintenance until Nov 19."
    },
    {
     "id": "bar-harbor",
@@ -189,6 +202,11 @@
     "radius": 0.15,
     "sources": [
      {
+      "type": "still",
+      "url": "https://i.ytimg.com/vi/rArvNLNmhOo/maxresdefault_live.jpg",
+      "unverified": true
+     },
+     {
       "type": "youtube",
       "url": "https://www.youtube.com/watch?v=rArvNLNmhOo",
       "unverified": true
@@ -215,6 +233,11 @@
     "elev": null,
     "radius": 0.1,
     "sources": [
+     {
+      "type": "still",
+      "url": "https://i.ytimg.com/vi/rxyNjFKwzJA/maxresdefault_live.jpg",
+      "unverified": true
+     },
      {
       "type": "youtube",
       "url": "https://www.youtube.com/watch?v=rxyNjFKwzJA",
@@ -247,6 +270,11 @@
     "elev": 1917,
     "radius": 0.05,
     "sources": [
+     {
+      "type": "still",
+      "url": "https://i.ytimg.com/vi/Z27ghRYocJ4/maxresdefault_live.jpg",
+      "unverified": true
+     },
      {
       "type": "youtube",
       "url": "https://www.youtube.com/watch?v=Z27ghRYocJ4",
