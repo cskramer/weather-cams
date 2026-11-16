@@ -1,0 +1,299 @@
+{
+ "version": 1,
+ "about": "Single source of truth for place lists and camera feeds. Devices read this file; tools/mirror_cams.py turns each place's sources into one baseline 800x480-class JPEG on the 'cams' branch. Sources are tried in order, first success wins. Types: still (direct image: jpg/png/webp), hls (.m3u8 or other ffmpeg-readable video URL), youtube (watch/live URL, needs yt-dlp). Optional per source: referer. Optional per place: note, radius (degrees ~111 km, how close a searched city must be to use this camera).",
+ "groups": {
+  "fam": [
+   {
+    "id": "kiruna",
+    "name": "Kiruna",
+    "country": "Sweden",
+    "lat": 67.8558,
+    "lon": 20.2253,
+    "elev": null,
+    "radius": 0.3,
+    "sources": [
+     {
+      "type": "still",
+      "url": "http://www.reservoirproduction.se/destination/Images/latest.jpg"
+     }
+    ]
+   },
+   {
+    "id": "greeley",
+    "name": "Greeley",
+    "country": "USA",
+    "lat": 40.4233,
+    "lon": -104.7091,
+    "elev": null,
+    "radius": 0.15,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://liveviewstorage120914.blob.core.windows.net/liveview-storage/image.jpg"
+     }
+    ]
+   },
+   {
+    "id": "pikes-peak",
+    "name": "Pikes Peak",
+    "country": "USA",
+    "lat": 38.8405,
+    "lon": -105.0443,
+    "elev": 4302,
+    "radius": 0.05,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://websvc.coloradosprings.gov/ppcam/COGEntry.jpg"
+     }
+    ]
+   },
+   {
+    "id": "colorado-springs",
+    "name": "Colorado Springs",
+    "country": "USA",
+    "lat": 38.8339,
+    "lon": -104.8214,
+    "elev": null,
+    "radius": 0.3,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://mediaassets.koaa.com/weatherimages/COS_STUDIO_KOAA_DIRECT_FEED.jpg"
+     }
+    ]
+   }
+  ],
+  "fav": [
+   {
+    "id": "crested-butte-town",
+    "name": "Crested Butte Town",
+    "country": "CO",
+    "lat": 38.8697,
+    "lon": -106.9878,
+    "elev": 2708,
+    "radius": 0.02,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://g1.ipcamlive.com/player/snapshot.php?alias=5dcc7be5d5f02",
+      "unverified": true
+     },
+     {
+      "type": "still",
+      "url": "https://cocam.carsprogram.org/Cellular/135S02685CAM1RHS-S.jpg"
+     }
+    ],
+    "note": "First source is the Elk Avenue cam (ipcamlive alias 5dcc7be5d5f02) if its snapshot address works; second is a CDOT highway cam."
+   },
+   {
+    "id": "telluride-town",
+    "name": "Telluride Town",
+    "country": "CO",
+    "lat": 37.9375,
+    "lon": -107.8123,
+    "elev": 2667,
+    "radius": 0.02,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://cocam.carsprogram.org/Cellular/145S07055CAM1RHS-N.jpg"
+     }
+    ]
+   },
+   {
+    "id": "bar-harbor",
+    "name": "Bar Harbor",
+    "country": "ME",
+    "lat": 44.3876,
+    "lon": -68.2039,
+    "elev": null,
+    "radius": 0.12,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://barharborcam.com/webcams/jordanpond/jordanpond.jpg"
+     }
+    ]
+   },
+   {
+    "id": "cloudcroft",
+    "name": "Cloudcroft",
+    "country": "NM",
+    "lat": 32.954,
+    "lon": -105.7439,
+    "elev": null,
+    "radius": 0.1,
+    "sources": [],
+    "note": "No camera found yet. Add a source here."
+   },
+   {
+    "id": "santa-fe",
+    "name": "Santa Fe",
+    "country": "NM",
+    "lat": 35.687,
+    "lon": -105.9378,
+    "elev": null,
+    "radius": 0.1,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://streamer5.brownrice.com/cam-images/barkerrealty1.jpg"
+     }
+    ],
+    "note": "This is the Santa Fe Railyard cam (player.brownrice.com/embed/barkerrealty1)."
+   },
+   {
+    "id": "point-reyes",
+    "name": "Point Reyes",
+    "country": "CA",
+    "lat": 38.0689,
+    "lon": -122.8069,
+    "elev": null,
+    "radius": 0.1,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://www.nps.gov/featurecontent/ard/webcams/images/pore.jpg"
+     }
+    ]
+   },
+   {
+    "id": "portland-me",
+    "name": "Portland",
+    "country": "ME",
+    "lat": 43.6591,
+    "lon": -70.2568,
+    "elev": null,
+    "radius": 0.15,
+    "sources": [
+     {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=rArvNLNmhOo",
+      "unverified": true
+     },
+     {
+      "type": "still",
+      "url": "https://www.maineturnpike.com/cameras/Exit%2047.jpg"
+     }
+    ],
+    "note": "First source is the liveworldwebcams Portland YouTube stream; second is a Maine Turnpike cam."
+   },
+   {
+    "id": "vancouver",
+    "name": "Vancouver",
+    "country": "BC",
+    "lat": 49.2827,
+    "lon": -123.1207,
+    "elev": null,
+    "radius": 0.1,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://cdn.skylinewebcams.com/live5590.jpg",
+      "unverified": true
+     },
+     {
+      "type": "still",
+      "url": "https://trafficcams.vancouver.ca/cameraimages/GranvilleNorth_Georgia.jpg"
+     }
+    ],
+    "note": "First source is a guess at the SkylineWebcams Vancouver panorama snapshot; second is a city traffic cam."
+   },
+   {
+    "id": "mount-washington",
+    "name": "Mount Washington",
+    "country": "NH",
+    "lat": 44.2706,
+    "lon": -71.3033,
+    "elev": 1917,
+    "radius": 0.05,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://hazecam.net/images/main/mtwash.jpg"
+     }
+    ]
+   }
+  ],
+  "ski": [
+   {
+    "id": "monarch",
+    "name": "Monarch",
+    "country": "CO",
+    "lat": 38.5122,
+    "lon": -106.3322,
+    "elev": 3300,
+    "radius": 0.05,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://streamer5.brownrice.com/cam-images/skimonarchsundeck.jpg"
+     }
+    ]
+   },
+   {
+    "id": "breckenridge",
+    "name": "Breckenridge",
+    "country": "CO",
+    "lat": 39.4817,
+    "lon": -106.0384,
+    "elev": 3000,
+    "radius": 0.05,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://live9.brownrice.com/cam-images/breckenridge9.jpg"
+     }
+    ]
+   },
+   {
+    "id": "keystone",
+    "name": "Keystone",
+    "country": "CO",
+    "lat": 39.6069,
+    "lon": -105.9437,
+    "elev": 2900,
+    "radius": 0.05,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://live9.brownrice.com/cam-images/keystonenorthpeak.jpg"
+     }
+    ]
+   },
+   {
+    "id": "crested-butte",
+    "name": "Crested Butte",
+    "country": "CO",
+    "lat": 38.8991,
+    "lon": -106.9656,
+    "elev": 2800,
+    "radius": 0.03,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://cbtv.tv/anonftp/WEATHER/screenID010.jpg"
+     }
+    ]
+   },
+   {
+    "id": "telluride",
+    "name": "Telluride",
+    "country": "CO",
+    "lat": 37.9306,
+    "lon": -107.8483,
+    "elev": 2900,
+    "radius": 0.03,
+    "sources": [
+     {
+      "type": "still",
+      "url": "https://tellurideskiresort.com/wp-content/uploads/tweb/00/top9.jpg"
+     }
+    ],
+    "note": "Top of Lift 9; may be stale outside ski season."
+   }
+  ],
+  "other": []
+ }
+}

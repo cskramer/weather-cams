@@ -1,0 +1,46 @@
+# Every 5 minutes: fetch each camera listed in config/cams.json, turn it into a
+# baseline JPEG, and publish the results as a single commit on the "cams" branch.
+# Devices download https://raw.githubusercontent.com/<you>/<repo>/cams/<id>.jpg
+name: Mirror cameras
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["config/cams.json", "tools/mirror_cams.py", ".github/workflows/cams.yml"]
+permissions:
+  contents: write
+concurrency:
+  group: mirror-cams
+  cancel-in-progress: false
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tools/requirements.txt
+      - run: pip install -r tools/requirements.txt
+      - name: ffmpeg
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Restore previous pictures from the cams branch
+        run: |
+          mkdir cams-out
+          if git fetch --depth=1 origin cams; then git archive FETCH_HEAD | tar -x -C cams-out; fi
+      - name: Fetch cameras
+        run: python tools/mirror_cams.py config/cams.json cams-out
+      - name: Publish (single commit, history is not kept)
+        run: |
+          cd cams-out
+          git init -q -b cams
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "cameras $(date -u +%Y-%m-%dT%H:%MZ)"
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git push -q -f origin cams
