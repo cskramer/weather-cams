@@ -168,8 +168,14 @@
     "lon": -105.7439,
     "elev": null,
     "radius": 0.1,
-    "sources": [],
-    "note": "No camera found yet. Add a source here."
+    "sources": [
+     {
+      "type": "hls",
+      "url": "https://s94.ipcamlive.com/streams/5eeqclvbxvr4y8odo/stream.m3u8",
+      "unverified": true
+     }
+    ],
+    "note": "Cloudcroft: ipcamlive stream address copied from the browser (a session address, may expire; a snapshot.php?alias=... source is more durable)."
    },
    {
     "id": "santa-fe",
