@@ -96,10 +96,17 @@
     "radius": 0.02,
     "sources": [
      {
+      "type": "page",
+      "url": "https://vauth.command.verkada.com/__v/town-of-mountain-village/embed/html/79777fa6-9977-43e1-a985-d4a51a37a20f/",
+      "wait": 12,
+      "unverified": true
+     },
+     {
       "type": "still",
       "url": "https://cocam.carsprogram.org/Cellular/145S07055CAM1RHS-N.jpg"
      }
-    ]
+    ],
+    "note": "First source is the Telluride Station gondola camera (Oak Street Plaza) from townofmountainvillage.com/webcams, shown through a headless browser; second is the CDOT Lawson Hill highway cam. The gondola is closed for maintenance Oct 26 - Nov 19."
    },
    {
     "id": "bar-harbor",
@@ -111,10 +118,17 @@
     "radius": 0.12,
     "sources": [
      {
+      "type": "page",
+      "url": "https://watch.hdrelay.io/player.html?cam=cam_geddys___bar_harbor_1794419766210&profile=p_mwcg9ed8npy3&sig=8ccefebc570858c806b43528&exp=1952108778332&dom=",
+      "wait": 12,
+      "unverified": true
+     },
+     {
       "type": "still",
       "url": "https://barharborcam.com/webcams/jordanpond/jordanpond.jpg"
      }
-    ]
+    ],
+    "note": "First source is Geddy's harbor cam (signed HD Relay player from geddys.com/geddys-cams) through a headless browser; second is the Jordan Pond still."
    },
    {
     "id": "cloudcroft",
@@ -174,6 +188,12 @@
       "unverified": true
      },
      {
+      "type": "page",
+      "url": "https://www.youtube.com/embed/rArvNLNmhOo?autoplay=1&mute=1&controls=0",
+      "wait": 12,
+      "unverified": true
+     },
+     {
       "type": "still",
       "url": "https://www.maineturnpike.com/cameras/Exit%2047.jpg"
      }
@@ -190,6 +210,17 @@
     "radius": 0.1,
     "sources": [
      {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=rxyNjFKwzJA",
+      "unverified": true
+     },
+     {
+      "type": "page",
+      "url": "https://www.youtube.com/embed/rxyNjFKwzJA?autoplay=1&mute=1&controls=0",
+      "wait": 12,
+      "unverified": true
+     },
+     {
       "type": "still",
       "url": "https://cdn.skylinewebcams.com/live5590.jpg",
       "unverified": true
@@ -199,7 +230,7 @@
       "url": "https://trafficcams.vancouver.ca/cameraimages/GranvilleNorth_Georgia.jpg"
      }
     ],
-    "note": "First source is a guess at the SkylineWebcams Vancouver panorama snapshot; second is a city traffic cam."
+    "note": "First source is the Port of Vancouver webcam (vancouver-webcams.com YouTube stream); then a guessed SkylineWebcams snapshot; then a city traffic cam."
    },
    {
     "id": "mount-washington",
@@ -211,10 +242,22 @@
     "radius": 0.05,
     "sources": [
      {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=Z27ghRYocJ4",
+      "unverified": true
+     },
+     {
+      "type": "page",
+      "url": "https://www.youtube.com/embed/Z27ghRYocJ4?autoplay=1&mute=1&controls=0",
+      "wait": 12,
+      "unverified": true
+     },
+     {
       "type": "still",
       "url": "https://hazecam.net/images/main/mtwash.jpg"
      }
-    ]
+    ],
+    "note": "First source is a YouTube stream; second is the low-res hazecam.net still."
    }
   ],
   "ski": [

@@ -73,16 +73,43 @@ def grab_hls(src):
 
 
 def grab_youtube(src):
-    r = subprocess.run(
-        ["yt-dlp", "-g", "-f", "best[height<=720]/best", "--no-warnings", src["url"]],
-        check=True, timeout=VIDEO_TIMEOUT, capture_output=True, text=True)
-    lines = [l for l in r.stdout.splitlines() if l.strip()]
-    if not lines:
-        raise ValueError("yt-dlp returned no stream address")
-    return ffmpeg_frame(lines[0])
+    # YouTube needs a JavaScript runtime for some streams (GitHub's runners have node), and
+    # often blocks datacenter addresses outright. Try with node first, then plain.
+    last = None
+    for extra in (["--js-runtimes", "node"], []):
+        try:
+            r = subprocess.run(
+                ["yt-dlp", "-g", "-f", "best[height<=720]/best", "--no-warnings", *extra, src["url"]],
+                check=True, timeout=VIDEO_TIMEOUT, capture_output=True, text=True)
+            lines = [l for l in r.stdout.splitlines() if l.strip()]
+            if not lines:
+                raise ValueError("yt-dlp returned no stream address")
+            return ffmpeg_frame(lines[0])
+        except Exception as e:
+            last = e
+    raise last
 
 
-GRABBERS = {"still": grab_still, "hls": grab_hls, "youtube": grab_youtube}
+def grab_page(src):
+    """Open a web page (e.g. a video player's embed address) in a headless browser and
+    screenshot it. For players that only work inside a page. Options: wait (seconds to let
+    the video start, default 10), selector (screenshot just that element, e.g. "video")."""
+    from playwright.sync_api import sync_playwright
+    wait = float(src.get("wait", 10))
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch(args=["--autoplay-policy=no-user-gesture-required", "--mute-audio"])
+        try:
+            page = browser.new_page(viewport={"width": 1280, "height": 720}, user_agent=UA)
+            page.goto(src["url"], wait_until="domcontentloaded", timeout=30000)
+            page.wait_for_timeout(int(wait * 1000))
+            el = page.query_selector(src["selector"]) if src.get("selector") else None
+            png = el.screenshot() if el else page.screenshot()
+        finally:
+            browser.close()
+    return to_jpeg(png)
+
+
+GRABBERS = {"still": grab_still, "hls": grab_hls, "youtube": grab_youtube, "page": grab_page}
 
 
 def main(cfg_path, out_dir):

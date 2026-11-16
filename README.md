@@ -20,6 +20,7 @@ Groups: `fam`, `fav`, `ski`, `other` (menu order = file order). Each place:
 - `still`: a direct picture address (jpg, png, webp).
 - `hls`: a video stream address (`.m3u8` etc.); one frame is grabbed with ffmpeg.
 - `youtube`: a watch or live address (yt-dlp).
+- `page`: any web page, opened in a headless browser and screenshotted after `wait` seconds (default 10); optional `selector` (e.g. `"video"`) shoots just that element. For players that only work inside a page (Verkada, HD Relay, YouTube embeds). Slower than the others, so put it after cheaper sources.
 Optional on a source: `referer`, and `"insecure": true` (skip certificate checking, for cameras whose HTTPS certificate is broken). Optional on a place: `note`, `elev` (meters, `null` for terrain default), `radius` (degrees, about 111 km each: how close a searched city must be to use this camera). Max 24 places per group. Entries marked `"unverified": true` are guesses; check the run log.
 
 Edit it right on GitHub. Devices pick up changes within 6 hours, or immediately when REFRESH is pressed on the home screen. Output pictures are baseline JPEGs of at most 1280 pixels; if every source fails the last good picture is kept for 24 hours, then removed so devices fall back to the camera's own address.
