@@ -118,6 +118,12 @@
     "radius": 0.12,
     "sources": [
      {
+      "type": "hls",
+      "url": "https://east.hdrelay.io/live/cam_geddys___bar_harbor_1794419766210/index.m3u8",
+      "referer": "https://geddys.com/",
+      "unverified": true
+     },
+     {
       "type": "page",
       "url": "https://watch.hdrelay.io/player.html?cam=cam_geddys___bar_harbor_1794419766210&profile=p_mwcg9ed8npy3&sig=8ccefebc570858c806b43528&exp=1952108778332&dom=",
       "wait": 12,
@@ -128,7 +134,7 @@
       "url": "https://barharborcam.com/webcams/jordanpond/jordanpond.jpg"
      }
     ],
-    "note": "First source is Geddy's harbor cam (signed HD Relay player from geddys.com/geddys-cams) through a headless browser; second is the Jordan Pond still."
+    "note": "Geddy's harbor cam: direct HD Relay stream first, then the signed player page in a headless browser, then the Jordan Pond still."
    },
    {
     "id": "cloudcroft",
