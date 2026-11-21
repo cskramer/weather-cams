@@ -1,0 +1,147 @@
+{
+ "kiruna": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 42571,
+  "last_ok": 1795276237
+ },
+ "greeley": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 311898,
+  "last_ok": 1795276237
+ },
+ "pikes-peak": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 205334,
+  "last_ok": 1795276237
+ },
+ "colorado-springs": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 151663,
+  "last_ok": 1795276237
+ },
+ "crested-butte-town": {
+  "ok": true,
+  "source": 0,
+  "type": "hls",
+  "bytes": 119897,
+  "last_ok": 1795276237
+ },
+ "telluride-town": {
+  "ok": true,
+  "source": 2,
+  "type": "page",
+  "bytes": 90318,
+  "last_ok": 1795276237
+ },
+ "bar-harbor": {
+  "ok": true,
+  "source": 0,
+  "type": "hls",
+  "bytes": 70516,
+  "last_ok": 1795276237
+ },
+ "cloudcroft": {
+  "ok": true,
+  "source": 0,
+  "type": "hls",
+  "bytes": 208345,
+  "last_ok": 1795276237
+ },
+ "santa-fe": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 133987,
+  "last_ok": 1795276237
+ },
+ "point-reyes": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 32695,
+  "last_ok": 1795276237
+ },
+ "portland-me": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 200289,
+  "last_ok": 1795276237
+ },
+ "vancouver": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 216421,
+  "last_ok": 1795276237
+ },
+ "mount-washington": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 130552,
+  "last_ok": 1795276237
+ },
+ "austin": {
+  "ok": true,
+  "source": 0,
+  "type": "hls",
+  "bytes": 18603,
+  "last_ok": 1795276237
+ },
+ "berkeley": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 133832,
+  "last_ok": 1795276237
+ },
+ "monarch": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 142323,
+  "last_ok": 1795276237
+ },
+ "breckenridge": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 146646,
+  "last_ok": 1795276237
+ },
+ "keystone": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 24428,
+  "last_ok": 1795276237
+ },
+ "crested-butte": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 59697,
+  "last_ok": 1795276237
+ },
+ "telluride": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 54961,
+  "last_ok": 1795276237
+ },
+ "_run": {
+  "time": 1795276237,
+  "ok": 20,
+  "total": 20
+ }
+}
