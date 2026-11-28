@@ -1,0 +1,148 @@
+{
+ "kiruna": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 43565,
+  "last_ok": 1795878807
+ },
+ "greeley": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 287406,
+  "last_ok": 1795878807
+ },
+ "pikes-peak": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 209991,
+  "last_ok": 1795878807
+ },
+ "colorado-springs": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 128366,
+  "last_ok": 1795878807
+ },
+ "crested-butte-town": {
+  "ok": true,
+  "source": 0,
+  "type": "hls",
+  "bytes": 71458,
+  "last_ok": 1795878807
+ },
+ "telluride-town": {
+  "ok": true,
+  "source": 2,
+  "type": "page",
+  "bytes": 94025,
+  "last_ok": 1795878807
+ },
+ "bar-harbor": {
+  "ok": true,
+  "source": 0,
+  "type": "hls",
+  "bytes": 281014,
+  "last_ok": 1795878807
+ },
+ "cloudcroft": {
+  "ok": false,
+  "last_ok": 1795726673,
+  "errors": [
+   "source 0 (hls): CalledProcessError: [in#0 @ 0x5709c34b5cc0] Error opening input: Server returned 404 Not Found\nError opening input file https://s94.ipcamlive.com/streams/5eeqclvbxvr4y8odo/stream.m"
+  ],
+  "removed_stale": true
+ },
+ "santa-fe": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 160389,
+  "last_ok": 1795878807
+ },
+ "point-reyes": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 37737,
+  "last_ok": 1795878807
+ },
+ "portland-me": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 248264,
+  "last_ok": 1795878807
+ },
+ "vancouver": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 190114,
+  "last_ok": 1795878807
+ },
+ "mount-washington": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 130552,
+  "last_ok": 1795878807
+ },
+ "austin": {
+  "ok": true,
+  "source": 0,
+  "type": "hls",
+  "bytes": 165656,
+  "last_ok": 1795878807
+ },
+ "berkeley": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 109950,
+  "last_ok": 1795878807
+ },
+ "monarch": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 92067,
+  "last_ok": 1795878807
+ },
+ "breckenridge": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 123738,
+  "last_ok": 1795878807
+ },
+ "keystone": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 23155,
+  "last_ok": 1795878807
+ },
+ "crested-butte": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 59456,
+  "last_ok": 1795878807
+ },
+ "telluride": {
+  "ok": true,
+  "source": 0,
+  "type": "still",
+  "bytes": 180692,
+  "last_ok": 1795878807
+ },
+ "_run": {
+  "time": 1795878807,
+  "ok": 19,
+  "total": 20
+ }
+}
